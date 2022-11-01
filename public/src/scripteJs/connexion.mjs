@@ -1,45 +1,7 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bakeli-Tontine connexion</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link rel="stylesheet" href="./src/styleCss/style.css"> 
-    <!-- <script  src="./src/scripteJs/connexion.mjs" type = "module"></script> -->
-</head>
-  <body>
-    <!-- Alpha Oumar Barry -->
-<div class="container-fluid min-vh-100">
-  <div class="row">
-    <div class="col-md-4 d-none d-md-flex justify-content-center align-items-center min-vh-100" id="gauche">
-      <img src="./src/assets/img/login.svg" alt="login" class="w-100 h-100
-      0">
-    </div>
 
-    <div class="col-md-8 text-center mt-5 droite">
-          <h1 class="mb-3">Bienvenu sur Bakéli-Tontine !</h1>
-          <h3 class="mb-3">Connectez-vous</h3>
-          <p class="mb-3">Connectez-vous et gérez vos cotisations</p>
-          <form class="form-group text-center my-5" id="formConnection">
-              <input type="text" id="email" placeholder="N° téléphone">
-              <br><br><input type="password" id="password" placeholder="Mot de passe">
-              <div class="a1 mt-3">
-                <a href="#" id="forgot">Mot de passe oublié?</a>
-              </div>
-              <button id="connexion" type="submit">Connexion</button>
-          </form>
-
-      <p>Vous n'avez pas de compte <a href="./inscription.html" class="fw-bold">Inscrivez-vous</a></p>
-    </div>
-  </div>
-</div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-     integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" 
-     crossorigin="anonymous"></script>
- <script type="module">
-  
-
+alert('dfrethr')
+// alert('dfrethr')
+console.log('ok');
     
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-app.js";
     import { getFirestore, addDoc, getDocs, setDoc, doc, collection} from "https://www.gstatic.com/firebasejs/9.12.1/firebase-firestore.js";
@@ -96,9 +58,3 @@
 
    
   
- </script>
-
-
-
-</body>
-</html>
