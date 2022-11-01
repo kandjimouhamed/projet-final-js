@@ -5,10 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<<<<<<<< HEAD:public/user/archive.html
     <link rel="stylesheet" href="../src/styleCss/style.css">  
+========
+<<<<<<< HEAD
+    <link rel="stylesheet" href="../styleCss/style.css"> 
+=======
+    <link rel="stylesheet" href="../styleCss/style.css">  
+>>>>>>> d5ee342d4ce8e4e5bfb2cc48c1a73b2dd1cdb076
+>>>>>>>> 48c806fb1eb0cd7b90d4aed3652e6609038e27e2:pages index/archive.html
 </head>
   <body>
      <!-- serigne  thiam -->
+     <h3 class="text-center">Membres archives</h3>
+     <table class="table justify-content-center">
+      <thead class="bg bg-success">
+        <tr class="text-white">
+          <th scope="col">Membre</th>
+          <th scope="col">Date de debut</th>
+          <th scope="col">actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>
+            <button type="button" class="btn btn-success">desarchiver</button>
+          </td>
+        </tr>
+        <tr>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>
+            <button type="button" class="btn btn-success">desarchiver</button>
+          </td>
+        </tr>
+        <tr>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>
+            <button type="button" class="btn btn-success">desarchiver</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+    
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyDMdM55m1t8SCUyy8UoQuR4LX-HraDY3EM",
+        authDomain: "bakeli-tontine.firebaseapp.com",
+        projectId: "bakeli-tontine",
+        storageBucket: "bakeli-tontine.appspot.com",
+        messagingSenderId: "309665317631",
+        appId: "1:309665317631:web:4a097fe3f5785040bf42ca"
+      };
+    
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <script type="module" src="../src/scripteJs/script.js"></script>
 </body>

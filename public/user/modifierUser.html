@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>page modification user</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link rel="stylesheet" href="../src/styleCss/style.css">
+</head>
+
+<body>
+  <!-- thier  -->
+  <div class="container border">
+    <div class="user1">
+      <p> Utilisateurs</p>
+    </div>
+    <div class="row">
+      <div class="container-right  col-md-3">
+        <div class="contianer_membre border">
+
+          <div class="text-center">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Membres</th>
+
+                </tr>
+              </thead>
+              <tbody id="table">
+
+              </tbody>
+            </table>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="container-left  col-md-9">
+        <h4 class="text-center mt-4">Information general</h4>
+        <form class="row g-3">
+          <div class="col-md-6">
+            <label for="inputEmail4" class="form-label">Prenom</label>
+            <input type="text" class="form-control" id="prenom">
+          </div>
+          <div class="col-md-6">
+            <label for="inputPassword4" class="form-label">Nom</label>
+            <input type="text" class="form-control" id="nom">
+          </div>
+          <div class="col-md-6">
+            <label for="inputEmail4" class="form-label">Date de naissance</label>
+            <input type="date" class="form-control" id="dateDenais">
+          </div>
+          <div class="col-md-6">
+            <label for="inputPassword4" class="form-label">Profession</label>
+            <input type="text" class="form-control" id="Profession">
+          </div>
+          <div class="col-md-6">
+            <label for="inputEmail4" class="form-label">Definir un mot de passe</label>
+            <input type="password" class="form-control" id="password">
+          </div>
+          <div class="col-md-6">
+            <label for="inputPassword4" class="form-label">confirmation de mot de</label>
+            <input type="password" class="form-control" id="PasswordConfirm">
+          </div>
+          <div class="col-md-6">
+            <label for="inputEmail4" class="form-label">Email</label>
+            <input type="email" class="form-control" id="inputEmail4">
+          </div>
+          <div class="col-md-6">
+            <label for="inputPassword4" class="form-label">Telepone</label>
+            <input type="tel" class="form-control" id="tel">
+          </div>
+          <div class="col-md-6">
+            <label for="inputEmail4" class="form-label">Adresse</label>
+            <input type="text" class="form-control" id="adresse">
+          </div>
+          <div class="col-md-6">
+            <label for="inputPassword4" class="form-label">Organisation</label>
+            <input type="text" class="form-control" id="organ">
+          </div>
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary">update</button>
+
+          </div>
+      </div>
+    </div>
+
+    </form>
+  </div>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyDMdM55m1t8SCUyy8UoQuR4LX-HraDY3EM",
+    authDomain: "bakeli-tontine.firebaseapp.com",
+    projectId: "bakeli-tontine",
+    storageBucket: "bakeli-tontine.appspot.com",
+    messagingSenderId: "309665317631",
+    appId: "1:309665317631:web:4a097fe3f5785040bf42ca"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+    import {getFirestore, collection, doc, getDocs } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-firestore.js";
+
+    const db = getFirestore();
+    // const docRef = doc(db, "membres");
+    // const docSnap = await getDoc(docRef);
+      
+    const allData = [];
+const tab =[];
+const querySnapshot = await getDocs(collection(db, "membres"));
+querySnapshot.forEach((doc) => {
+  // doc.data() is never undefined for query doc snapshots
+  // console.log(doc.id, " => ", doc.data());
+  let docData = doc.data();
+  const table = document.getElementById('table');
+  //  const docData = doc.data;
+   console.log(docData.name +' '+ docData.prenom);
+   table.innerHTML +=
+   `   <tr> 
+    <td><span id = ${doc.id}>${docData.name +' '+ docData.prenom}</span></td> 
+    </tr> `
+    allData.push({id: doc.id, ...docData});
+  })
+
+    console.log(allData);
+
+    document.querySelectorAll('span').forEach(elt =>{
+      const eltFiltrer = allData.filter(els => els.id === elt.id)
+      elt.addEventListener('click',()=>{
+        console.log(eltFiltrer);
+
+        let nom = document.getElementById('nom');
+        let prenomA = document.getElementById('prenom');
+        let emailA = document.getElementById('inputEmail4');
+        let telephoneA = document.getElementById('tel');
+        let adresseA = document.getElementById('adresse');
+        let professionA = document.getElementById('Profession');
+        let dateA = document.getElementById('dateDenais');
+        let passwordA = document.getElementById('password');
+        let PasswordConfirmA = document.getElementById('PasswordConfirm');
+        let OrganisationA = document.getElementById('organ');
+
+        
+        const a = eltFiltrer[0].name;
+        const b = eltFiltrer[0].prenom;
+        const c = eltFiltrer[0].email;
+        const d = eltFiltrer[0].adresse;
+        const e = eltFiltrer[0].telephone;
+        const f = eltFiltrer[0].Organisation;
+        const g = eltFiltrer[0].profession;
+        const h = eltFiltrer[0].date;
+        
+        console.log(b);
+
+        nom.value=a;
+        prenomA.value=b;
+        emailA.value=c;
+        adresseA.value=d;
+        telephoneA.value=e;
+        OrganisationA.value=f;
+        professionA.value=g;
+        dateA.value=h;
+
+      })
+    })
+ 
+
+
+  //   const docReff = addDoc(collection(db, "membres"), {
+  //     name: nom,
+  //     prenom: prenom,
+  //     email: email,
+  //     telephone: telephone,
+  //     profession: profession,
+  //     pwd: password,
+  //     pwdconfirm: PasswordConfirm,
+  //     date: date,
+  //     Adresse: adresse,
+  //     Organisation: Organisation,
+  //   });
+
+
+  //   // import { collection, getDocs } from "firebase/firestore";
+
+  //   const tab = [];
+  //   const querySnapshot = await getDocs(collection(db, "membres"));
+  //   querySnapshot.forEach((element) => {
+  //     // doc.data() is never undefined for query doc snapshots
+  //     console.log(element.id, " => ", doc.data());
+  //     let docData = element.data();
+  //     //console.log(docData); 
+  //     tab.push(docData)
+
+  //   })
+  //   console.log(tab);
+
+  //   const table = document.getElementById('table')
+  //   tab.forEach(element => {
+  //     table.innerHTML +=
+  //       `   <tr> 
+  //                                 <td>${element.name} ${element.prenom}</td> 
+  //                              </tr> `
+
+  //   });
+
+
+  // // function resetForm() {
+  // //          document.getElementById("reset").reset();
+  // //        }
+  // //  resetForm();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    crossorigin="anonymous"></script>
+  <!-- <script type="module" src="../scripteJs/script.js"></script> -->
+</body>
+
+</html>

@@ -25,7 +25,7 @@
 // ===== Mouhamed Niang qui gère la page inscription
   if (location.href === "https://bakeli-tontine.web.app/inscription.html" ||
   location.href === "https://bakeli-tontine.firebaseapp.com/inscription.html" ||
-  location.href === ""
+  location.href === "http://127.0.0.1:5500/public/inscription.html"
   ) {
     var envoye = document.getElementById("envoyer");
   envoye.addEventListener('click',e=>{
@@ -70,9 +70,9 @@
           tel: ftel,
            organisation: forganisation,
           profession: fprofession,
-        });
-        alert("ajout avec succée !!!")
-  
+        })
+        .then(()=>alert("ajout avec succée !!!"))
+        .then(()=>location.href = "./connexion.html")
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -102,52 +102,46 @@
 
 // =====Alpha Oumar Barry Qui gere la page connexion
 
-// if (location.href === "https://bakeli-tontine.web.app/connexion.html" ||
-//     location.href === "https://bakeli-tontine.firebaseapp.com/connexion.html" ||
-//     location.href === "http://127.0.0.1:5500/user/connexion.html") {
-//   const maConnexion = function connexion(e) {
-//     e.preventDefault();
+if (location.href === "https://bakeli-tontine.web.app/connexion.html" ||
+    location.href === "https://bakeli-tontine.firebaseapp.com/connexion.html" ||
+    location.href === "http://127.0.0.1:5500/public/connexion.html") {
+  const maConnexion = function connexion(e) {
+    e.preventDefault();
   
-//     const prenom =document.getElementById('prenom').value;
-//     const nom =document.getElementById('nom').value;
-    
-//     const email =document.getElementById('email').value;
-//     const password = document.getElementById('password').value;
+    const email =document.getElementById('email').value;
+    const password = document.getElementById('password').value;
   
-//     signInWithEmailAndPassword(auth, email, password)
-//   .then((userCredential) => {
+    signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    // ...
+    window.location.href="./user/dashboard.html";
 
-//     // Signed in 
-//     const user = userCredential.user;
-//     sessionStorage.setItem('Email', email)
-//     // ...
-//     window.location.href="./user/dashboard.html";
-
-//   })
-//   .catch((error) => {
-//     const errorCode = error.code;
-//     const errorMessage = error.message;
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
   
-//     alert(errorCode, errorMessage)
-//   });
+    alert(errorCode, errorMessage)
+  });
   
-//   }
+  }
   
-//   const singIn = document.getElementById('connexion');
+  const singIn = document.getElementById('connexion');
   
-//   singIn.addEventListener('click', maConnexion);
-// }
+  singIn.addEventListener('click', maConnexion);
+}
 // =====Alpha Oumar Barry Qui gerait la page connexion
 
 
 // ===== Mady SANKHON qui gère la page de paramètre
 if (location.href === "https://bakeli-tontine.web.app/user/parametre.html" ||
 location.href === "https://bakeli-tontine.firebaseapp.com/user/parametre.html" ||
-location.href === "http://127.0.0.1:5500/public/user/parametre.html"
-
-) {
+location.href === "http://127.0.0.1:5500/public/user/parametre.html") {
   // user reference
     const userId = "zzzvQhSXfw0OKrnn7w7g";
+    
     const userRef = doc(db, "utilisateur", userId);
   // All data user
       const docUser = await getDoc(userRef);
