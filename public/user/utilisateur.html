@@ -1,25 +1,78 @@
 <!doctype html>
 <html lang="en">
-  
- 
     <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Bootstrap demo</title>
+      <link rel="stylesheet" href="../src/styleCss/dashboard.css">
+      <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" 
+     crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <title>Utilisateur</title>
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
       <link rel="stylesheet" href="../src/styleCss/style.css">  
-      <!-- <link rel="styelsheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"> -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
     
   </head>
   <body>
-     <!-- <div class="container" style="background-color: white; box-shadow: 1px 4px grey;">
-        <div class="row">
-          <h3>Utilisateurs</h3>
-        </div>
-     </div><br> -->
-     <div class="container">
+
+ <!-- ###### SIDEBAR ###### -->
+ <nav>
+  <div class="logo-name">              
+      <i class="uil uil-bag-alt"></i>
+      <h1 class="logo_name">Bakeli Tontine</h1>
+  </div>
+  <div class="menu-items">
+      <ul class="nav-links">
+          <li class="liste"> <a href="../dashboard.html">
+              <i class="uil uil-estate"></i>
+              <span class="link-name">Dashboard</span>
+              </a>
+          </li>
+          <li class="liste"> <a href="#">
+              <i class="uil uil-user"></i>
+              <span class="link-name">Utilisateurs</span>
+              </a>
+          </li>
+          <li class="liste"> <a href="./ajoutCotisation.html">
+              <i class="uil uil-chart"></i>
+              <span class="link-name">Cotisations</span>
+              </a>
+          </li>
+          <li class="liste"> 
+              <a href="#" class="parametre">
+              <i class="uil uil-setting"></i>
+              <span class="link-name">Parametres</span>
+              <i class="fa-solid fa-angle-down fleche"></i></a>
+              <ul class="dropDown" id="dropDown">
+                  <li><a href="./parametre.html">Parametres Generaux</a></li>
+                  <li><a href="">Utilisateurs</a></li>
+                  <li><a href="">Archives</a></li>
+                  <li><a href="">Membres Bloques</a></li>
+              </ul>        
+          </li>
+      </ul>
+  </div>
+</nav>
+<!-- ########### NAVBAR ############ -->
+<section class="navbar">
+  <h1>Utilisateurs</h1>
+  <div class="compte">
+      <div class="profil">
+          <img src="../src/assets/img/pp.png" alt="" class="avatar">
+          <div profil-nom>
+              <p class="nomProfil"> Abdou Khafour</p>
+              <p class="typeProfil"> Administrateur</p>
+          </div>
+      </div> 
+              
+  </div>
+</section>
+<!-- ######### LE CORPS DE LA PAGE ########## -->
+<section class="main">
+      <!-- 👏👏👏 FATOU AMAR SYLL 👏👏👏 -->
+     <div class="container mt-4">
       <div class="row">
         <div class="col-sm-4"  >
           <div class="card" style="background-color: rgb(5, 236, 5); float: right; color: white; ">
@@ -50,84 +103,86 @@
         </div>                                                      
       </div>
      </div>
-   <div class="position-relative">
-    <button  type="button" class="btn btn-primary position-absolute top-0 end-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
-      ajouter
-    </button>
-   </div>
-    <br><br>
-    <table class="table table-striped" >
-      <thead>
-        <tr>
-          <th>Membres</th>
-          <th>Date debut</th> 
-          <th>Seuil</th>
-          <th>Progression</th>
-          <th>Statut</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody id="table">
+     <div class="container">
 
-      </tbody>
-    </table>
+      <div class="position-relative">
+        <button  type="button" class="btn btn-primary position-absolute top-0 end-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          ajouter
+        </button>
+       </div>
+        <br><br>
+        <table class="table table-striped" >
+          <thead>
+            <tr>
+              <th>Membres</th>
+              <th>Date debut</th> 
+              <th>Seuil</th>
+              <th>Statut</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="table">
     
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-body">
-            <div class="testbox">
-          
-              <form id="contactForm">
-                  <h1>Ajouter un mambre</h1>
-                  <div class="colums">
-                    <div class="item">
-                      <label for="fname">Nom</label>
-                      <input id="fname" type="text" name="fname" />
+          </tbody>
+        </table>
+        
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-body">
+                <div class="testbox">
+              
+                  <form id="contactForm">
+                      <h1>Ajouter un mambre</h1>
+                      <div class="colums">
+                        <div class="item">
+                          <label for="fname">Nom</label>
+                          <input id="fname" type="text" name="fname" />
+                        </div>
+                        <div class="item">
+                          <label for="lname"> Prenom </label>
+                          <input id="lname" type="text" name="lname" />
+                        </div>
+                        <div class="item">
+                          <label for="Email">Email</label>
+                          <input id="Email" type="text"   name="Email" />
+                        </div>
+                        <div class="item">
+                          <label for="phone">Phone Number</label>
+                          <input id="phone" type="tel"   name="phone"/>
+                        </div>
+                        <div class="item">
+                          <label for="profession">profession</label>
+                          <input id="profession" type="text"   name="" />
+                        </div>
+                        <div class="item">
+                          <label for="Date">Date de naissance</label>
+                          <input id="Date" type="date"   name="city" />
+                        </div>
+                        <div class="item">
+                          <label for="Organisation">Organisation</label>
+                          <input id="Organisation" type="text"   name="Organisation" />
+                        </div>
+                        <div class="item">
+                          <label for="Address">Address</label>
+                          <input id="Address" type="text"   name="text" />
+                        </div>
+                      <br/>
+                    <div class="btn-block">
+                    <button type="submit">Ajouter</button>
                     </div>
-                    <div class="item">
-                      <label for="lname"> Prenom </label>
-                      <input id="lname" type="text" name="lname" />
-                    </div>
-                    <div class="item">
-                      <label for="Email">Email</label>
-                      <input id="Email" type="text"   name="Email" />
-                    </div>
-                    <div class="item">
-                      <label for="phone">Phone Number</label>
-                      <input id="phone" type="tel"   name="phone"/>
-                    </div>
-                    <div class="item">
-                      <label for="profession">profession</label>
-                      <input id="profession" type="text"   name="" />
-                    </div>
-                    <div class="item">
-                      <label for="Date">Date de naissance</label>
-                      <input id="Date" type="date"   name="city" />
-                    </div>
-                    <div class="item">
-                      <label for="Organisation">Organisation</label>
-                      <input id="Organisation" type="text"   name="Organisation" />
-                    </div>
-                    <div class="item">
-                      <label for="Address">Address</label>
-                      <input id="Address" type="text"   name="text" />
-                    </div>
-                  <br/>
-                <div class="btn-block">
-                <button type="submit">Ajouter</button>
-                </div>
-              </form>
+                  </form>
+                  </div>
               </div>
+            
+            </div>
           </div>
-          <!-- <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary"> ajouter</button>
-          </div> -->
         </div>
-      </div>
-    </div>
+
+     </div>
+
+</section>
      <script type="module" >
       // Import the functions you need from the SDKs you need
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
@@ -192,17 +247,6 @@ querySnapshot.forEach((doc) => {
                                 <td>${element.name} ${element.prenom}</td>
                                 <td>${element.date} </td>
                                 <td>${Seuil}</td>
-                                <td>
-                                  <div class="progress">
-                                    <div class="progress-bar
-                                     w-75" role="progressbar"
-                                      aria-label="Basic example"
-                                      aria-valuenow="75"
-                                       aria-valuemin="0"
-                                        aria-valuemax="100">
-                                        20%</div>
-                                        </div>
-                                </td>
                                 <td>statut</td>
                                 <td><i class='fas fa-ban'></i> <i class='fas fa-eye'></i> <i class='far fa-folder-open'></i></td>
                                 
@@ -210,14 +254,14 @@ querySnapshot.forEach((doc) => {
       
     });  
 
-    
-// function resetForm() {
-//          document.getElementById("reset").reset();
-//        }
-//  resetForm();
  </script>
-     
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-    <script type="module" src="../src/scripteJs/script.js"></script>
+ 
+ 
+ 
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
+      </script>
+      <script src="../src/scripteJs/dashboard.js"></script>
+      <script type="module" src="../src/scripteJs/script.js"></script>
 </body>
 </html>
