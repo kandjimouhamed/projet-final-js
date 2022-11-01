@@ -7,7 +7,7 @@
   <title>page modification user</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-  <link rel="stylesheet" href="../src/styleCss/style.css">
+  <link rel="stylesheet" href="../src/styleCss/modifUserStyle.css">
 </head>
 
 <body>
@@ -20,15 +20,16 @@
       <div class="container-right  col-md-3">
         <div class="contianer_membre border">
 
-          <div class="text-center">
-            <table class="table table-striped">
+          <div class="text-center div-tableau">
+            <table class="table ">
               <thead>
                 <tr>
                   <th>Membres</th>
-
+                   
                 </tr>
               </thead>
               <tbody id="table">
+                <!-- <tr><td> <span>thier ma</span></td></tr> -->
 
               </tbody>
             </table>
@@ -38,7 +39,7 @@
         </div>
       </div>
       <div class="container-left  col-md-9">
-        <h4 class="text-center mt-4">Information general</h4>
+        <h4 class="text-center mt-4">Information Génral</h4>
         <form class="row g-3">
           <div class="col-md-6">
             <label for="inputEmail4" class="form-label">Prenom</label>
@@ -81,8 +82,8 @@
             <input type="text" class="form-control" id="organ">
           </div>
           <div class="col-12">
-            <button type="submit" class="btn btn-primary">update</button>
-
+            <button type="submit" id="update" class="btn btn-primary">update</button>
+                 
           </div>
       </div>
     </div>
@@ -108,8 +109,8 @@
 
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
-    import {getFirestore, collection, doc, getDocs } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-firestore.js";
-
+    import {getFirestore, collection, doc, getDocs ,setDoc, updateDoc  } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-firestore.js";
+    import { getAuth, createUserWithEmailAndPassword } from"https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
     const db = getFirestore();
     // const docRef = doc(db, "membres");
     // const docSnap = await getDoc(docRef);
@@ -123,21 +124,27 @@ querySnapshot.forEach((doc) => {
   let docData = doc.data();
   const table = document.getElementById('table');
   //  const docData = doc.data;
-   console.log(docData.name +' '+ docData.prenom);
+  // console.log(docData.name +' '+ docData.prenom);
    table.innerHTML +=
    `   <tr> 
-    <td><span id = ${doc.id}>${docData.name +' '+ docData.prenom}</span></td> 
+    <td><button class="btn1" id = ${doc.id}>${docData.name +' '+ docData.prenom}</button></td> 
     </tr> `
     allData.push({id: doc.id, ...docData});
   })
-
-    console.log(allData);
-
-    document.querySelectorAll('span').forEach(elt =>{
+ 
+    //console.log(allData);
+    let idModif = null;
+    document.querySelectorAll('button').forEach(elt =>{
       const eltFiltrer = allData.filter(els => els.id === elt.id)
+      if (eltFiltrer[0].id === elt.id) {
+        idModif = elt.id;
+      } 
+      
       elt.addEventListener('click',()=>{
-        console.log(eltFiltrer);
-
+      
+       // document.querySelector('').setAttribute('id', 'tdcss')
+            
+           
         let nom = document.getElementById('nom');
         let prenomA = document.getElementById('prenom');
         let emailA = document.getElementById('inputEmail4');
@@ -153,13 +160,13 @@ querySnapshot.forEach((doc) => {
         const a = eltFiltrer[0].name;
         const b = eltFiltrer[0].prenom;
         const c = eltFiltrer[0].email;
-        const d = eltFiltrer[0].adresse;
+        const d = eltFiltrer[0].adress;
         const e = eltFiltrer[0].telephone;
-        const f = eltFiltrer[0].Organisation;
+        const f = eltFiltrer[0].organisation;
         const g = eltFiltrer[0].profession;
         const h = eltFiltrer[0].date;
         
-        console.log(b);
+        
 
         nom.value=a;
         prenomA.value=b;
@@ -172,7 +179,83 @@ querySnapshot.forEach((doc) => {
 
       })
     })
+ /*///////////  update function  //////////*/
+       let updatUser = document.getElementById('update');
+         updatUser.addEventListener('click', (e)=>{
+          e.preventDefault();
+          
+          let nom = document.getElementById('nom').value;
+          let prenomA = document.getElementById('prenom').value;
+          let emailA = document.getElementById('inputEmail4').value;
+        let telephoneA = document.getElementById('tel').value;
+        let adresseA = document.getElementById('adresse').value;
+        let professionA = document.getElementById('Profession').value;
+        let dateA = document.getElementById('dateDenais').value;
+        let passwordA = document.getElementById('password').value;
+        let PasswordConfirmA = document.getElementById('PasswordConfirm').value;
+        let organisationA = document.getElementById('organ').value;
+       
+         // console.log(idModif);
+
+  //       
+  const auth = getAuth();
+  if( passwordA  == PasswordConfirmA){
+  createUserWithEmailAndPassword(auth, passwordA, PasswordConfirmA)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+  });
  
+     updateDoc(doc(db, "membres", idModif ), {
+      
+          name: nom,
+          prenom: prenomA,
+          dateNaissance: dateA,
+          adress: adresseA,
+          email: emailA,
+          telephone: telephoneA,
+          organisation: organisationA,
+          profession: professionA,
+      })
+      .then(()=>alert("  modification succes!!!"))
+      .then(()=>location.reload())
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // ..
+      });
+    }else {
+      alert('mot de passe incorrect !!!')
+    }
+    })
+        
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   //   const docReff = addDoc(collection(db, "membres"), {

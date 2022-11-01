@@ -70,9 +70,9 @@
           tel: ftel,
            organisation: forganisation,
           profession: fprofession,
-        })
-        .then(()=>alert("ajout avec succée !!!"))
-        .then(()=>location.href = "./connexion.html")
+        });
+        alert("ajout avec succée !!!")
+  
       })
       .catch((error) => {
         const errorCode = error.code;

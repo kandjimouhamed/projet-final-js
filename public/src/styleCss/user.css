@@ -1,0 +1,78 @@
+html, body {
+    min-height: 100%;
+    }
+    body, div, form, input, label { 
+    padding: 0;
+    margin: 0;
+    outline: none;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 14px;
+    color: #666;
+    line-height: 22px;
+    }
+    h1{
+      font-family: Roboto, Arial, sans-serif;
+      text-align: center;
+    }
+    form {
+    width: 100%;
+    padding: 20px;
+    border-radius: 6px;
+    background: #fff;
+    /* box-shadow: 0 0 8px #006622;  */
+    }
+    input {
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width: calc(100% - 10px);
+    padding: 5px;
+    }
+    input[type="date"] {
+    padding: 4px 5px;
+    }
+  
+    .item input:hover {
+    border: 1px solid transparent;
+    /* box-shadow: 0 0 3px 0  #006622; */
+    color: #006622;
+    }
+    .item {
+    position: relative;
+    margin: 10px 0;
+    }
+   
+    .week {
+    display:flex;
+    justfiy-content:space-between;
+    }
+    .colums {
+    display:flex;
+    justify-content:space-between;
+    flex-direction:row;
+    flex-wrap:wrap;
+    }
+    .colums div {
+    width:48%;
+    }
+    .flax {
+    display:flex;
+    justify-content:space-around;
+    }
+    .btn-block {
+    margin-top: 10px;
+    text-align: right;
+    }
+    button {
+    width: 70px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px; 
+    background:  #1c87c9;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+    }
+    button:hover {   
+    background:  #0692e8;
+    }

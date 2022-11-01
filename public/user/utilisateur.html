@@ -1,17 +1,14 @@
 <!doctype html>
 <html lang="en">
-  
- 
-    <head>
+      <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>Bootstrap demo</title>
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-      <link rel="stylesheet" href="../src/styleCss/style.css">  
+      <link rel="stylesheet" href="../src/styleCss/user.css">  
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.9.1/font/bootstrap-icons.min.css">
       <!-- <link rel="styelsheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"> -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-
-    
   </head>
   <body>
      <!-- <div class="container" style="background-color: white; box-shadow: 1px 4px grey;">
@@ -21,37 +18,34 @@
      </div><br> -->
      <div class="container">
       <div class="row">
-        <div class="col-sm-4"  >
+        <div class="col-12 col-md-4 col-sm-12  mt-4"  >
           <div class="card" style="background-color: rgb(5, 236, 5); float: right; color: white; ">
               <div class="card-body">
                   <h6 class="card-title">Membres Actifs</h6>
-                  <p class="card-text">94 Membres</p>
+                  <p class="card-text"><span id="memmbreActif"></span></p>
               </div>
            </div>
        </div>
-       <div class="col-sm-4"  style=" width: 215px; ">
+       <div class="col-12 col-md-4 col-sm-12  mt-4"  style=" width: 215px; ">
             <div class="card">
                   <div class="card-body">
                       <h6 class="card-title">Membres Bloqués</h6>
-                        <p class="card-text">6 Membres</p>
+                        <p class="card-text"> <span id="memmbreBloque" ></span> </p>
                   </div>
               </div>
         </div>
-        <div class="col-sm-4" style="width: 215px; ">
+        <div class="col-12 col-md-4 col-sm-12  mt-4" style="width: 215px; ">
             <div class="card">
                     <div class="card-body">
                           <h6 class="card-title">Total Effectif</h6>
-                          <p class="card-text">100 Membres</p>
+                          <p class="card-text"><span id="totalMemmbre"></span</p>
                     </div>
             </div>
         </div>
-      </div>
-        
+      </div>  
      </div>
-         
-     
    <div class="position-relative">
-        <button  type="button" class="btn btn-primary position-absolute top-0 end-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button  type="button" class="btn btn-primary position-absolute top-0 end-0" data-bs-toggle="modal" data-bs-target="#exampleModal" date-bs-dismiss="modal">
           ajouter
         </button>
    </div>
@@ -72,75 +66,120 @@
       </tbody>
     </table><br><br>
 
-    <table class="table table-striped" >
-      <thead>
-        <tr>
-          <th>Membres</th>
-          <th>Date debut</th> 
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody id="tbody">
-
-      </tbody>
-    </table>
-    
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-body">
-            <div class="testbox">
-          
-              <form id="contactForm">
-                  <h1>Ajouter un mambre</h1>
-                  <div class="colums">
-                    <div class="item">
-                      <label for="fname">Nom</label>
-                      <input id="fname" type="text" name="fname" required="required" />
-                    </div>
-                    <div class="item">
-                      <label for="lname"> Prenom </label>
-                      <input id="lname" type="text" name="lname" required/>
-                    </div>
-                    <div class="item">
-                      <label for="Email">Email</label>
-                      <input id="Email" type="text"   name="Email" required/>
-                    </div>
-                    <div class="item">
-                      <label for="phone">Phone Number</label>
-                      <input id="phone" type="tel"   name="phone" required/>
-                    </div>
-                    <div class="item">
-                      <label for="profession">profession</label>
-                      <input id="profession" type="text"   name="profession" required />
-                    </div>
-                    <div class="item">
-                      <label for="Date">Date de naissance</label>
-                      <input id="Date" type="date"   name="city" required/>
-                    </div>
-                    <div class="item">
-                      <label for="Organisation">Organisation</label>
-                      <input id="Organisation" type="text"   name="Organisation" required />
-                    </div>
-                    <div class="item">
-                      <label for="Address">Address</label>
-                      <input id="Address" type="text"   name="text" required/>
-                    </div>
-                  <br/>
-                <div class="btn-block">
-                <button type="submit">Ajouter</button>
+ 
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="testbox">
+      
+          <form id="contactForm">
+              <h1>Ajouter un membre</h1>
+              <div class="colums">
+                <div class="item">
+                  <label for="fname">Nom</label>
+                  <input id="fname" type="text" name="fname" required="required" />
                 </div>
-              </form>
-              </div>
+                <div class="item">
+                  <label for="lname"> Prenom </label>
+                  <input id="lname" type="text" name="lname" required/>
+                </div>
+                <div class="item">
+                  <label for="Email">Email</label>
+                  <input id="Email" type="text"   name="Email" required/>
+                </div>
+                <div class="item">
+                  <label for="phone">Phone Number</label>
+                  <input id="phone" type="tel"   name="phone" required/>
+                </div>
+                <div class="item">
+                  <label for="profession">profession</label>
+                  <input id="profession" type="text"   name="profession" required />
+                </div>
+                <div class="item">
+                  <label for="Date">Date de naissance</label>
+                  <input id="Date" type="date"   name="city" required/>
+                </div>
+                <div class="item">
+                  <label for="Organisation">Organisation</label>
+                  <input id="Organisation" type="text"   name="Organisation" required />
+                </div>
+                <div class="item">
+                  <label for="Address">Address</label>
+                  <input id="Address" type="text"   name="text" required/>
+                </div>
+              <br/>
+            <div class="btn-block">
+            <button type="submit" id="ajouter">Ajouter</button>
+            </div>
+          </form>
           </div>
-          <!-- <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary"> ajouter</button>
-          </div> -->
-        </div>
       </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary"> ajouter</button>
+      </div> -->
     </div>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="voirModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="testbox">
+      
+          <form id="contactForm">
+              <h1>Ajouter un membre</h1>
+              <div class="colums">
+                <div class="item">
+                  <label for="fname">Nom</label>
+                  <input id="fname" type="text" name="fname" required="required" />
+                </div>
+                <div class="item">
+                  <label for="lname"> Prenom </label>
+                  <input id="lname" type="text" name="lname" required/>
+                </div>
+                <div class="item">
+                  <label for="Email">Email</label>
+                  <input id="Email" type="text"   name="Email" required/>
+                </div>
+                <div class="item">
+                  <label for="phone">Phone Number</label>
+                  <input id="phone" type="tel"   name="phone" required/>
+                </div>
+                <div class="item">
+                  <label for="profession">profession</label>
+                  <input id="profession" type="text"   name="profession" required />
+                </div>
+                <div class="item">
+                  <label for="Date">Date de naissance</label>
+                  <input id="Date" type="date"   name="city" required/>
+                </div>
+                <div class="item">
+                  <label for="Organisation">Organisation</label>
+                  <input id="Organisation" type="text"   name="Organisation" required />
+                </div>
+                <div class="item">
+                  <label for="Address">Address</label>
+                  <input id="Address" type="text"   name="text" required/>
+                </div>
+              <br/>
+            <div class="btn-block">
+            <button type="reset" id="ajouter">fermer</button>
+            </div>
+          </form>
+          </div>
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary"> ajouter</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+   <script src="https://kit.fontawesome.com/549a77ad41.js" crossorigin="anonymous"></script>
      <script type="module" >
       // Import the functions you need from the SDKs you need
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
@@ -174,7 +213,7 @@
       .catch(error=>{
         console.log(error);
       })*/
-          
+
 const forme = document.getElementById('contactForm');
 forme.addEventListener('submit',(e) =>{
 e.preventDefault()
@@ -185,20 +224,24 @@ let telephone = document.getElementById('phone').value;
 let profession= document.getElementById('profession').value;
 let date      = document.getElementById('Date').value;
 let Organisation= document.getElementById('Organisation').value;
-
+let Address= document.getElementById('Address').value;
 //let id=new Date()
-const docReff   = addDoc(collection(db, "membres"),{
+addDoc(collection(db, "membres"),{
 name      : nom,
 prenom    : prenom,
 email     : email,
 telephone  : telephone,
 profession : profession,
 date        : date ,
-Organisation: Organisation,
+organisation: Organisation,
+adress: Address,
  isArchiver : false,
  isBloquer : false,
+ isShown: false
+})
 
-});
+//.then(()=> alert('Membre ajouté avec succès !!!'))
+.then(()=> location.reload())
 
 })
 //import { collection, getDocs } from "firebase/firestore";
@@ -207,7 +250,6 @@ const tab =[];
 const querySnapshot = await getDocs(collection(db, "membres"));
 querySnapshot.forEach((doc) => {
   // doc.data() is never undefined for query doc snapshots
-  console.log(doc.id, " => ", doc.data());
   let docData = doc.data();
   //console.log(docData); 
    tab.push({id: doc.id, ...docData})
@@ -217,15 +259,30 @@ querySnapshot.forEach((doc) => {
     
     console.log(tab);
     
-    let eltsArchiver = tab.filter(el => el.isArchiver === true)
-    console.log(eltsArchiver);
-    let eltsDesarchiver = tab.filter(el => el.isArchiver === false) 
+    let tabAfficher = tab.filter(el => el.isArchiver === false && el.isBloquer === false)
+    // let eltsArchiver = tab.filter(el => el.isArchiver === true)
+    let eltsBloquer = tab.filter(el => el.isBloquer === true)
+    let eltsDebloquer = tab.filter(el => el.isBloquer === false)
     const tbody = document.getElementById('tbody')
     const tForm = document.getElementById('contactForm')
+    const memmbreActif =document.getElementById('memmbreActif')
+    const memmbreBloque =document.getElementById('memmbreBloque')
+    const totalMemmbre =document.getElementById('totalMemmbre')
 
+    memmbreActif.innerHTML = `${eltsDebloquer.length} Membres`
+    memmbreBloque.innerHTML = `${eltsBloquer.length} Membres`
+    totalMemmbre.innerHTML = `${tab.length} Membres`
     const Seuil = 300000;
     const table = document.getElementById('table')
-      eltsDesarchiver.forEach(element => {
+   // let Email     = document.getElementById('Email').value;
+
+    tabAfficher.forEach(element => {
+  //      console.log(element.email);
+  //      console.log(email);
+
+  //     if(element.email === email){
+  //  return alert('Membre existe deja')
+  // }else{
        table.innerHTML += 
                           ` <tr> 
                                 <td>${element.name} ${element.prenom}</td>
@@ -242,35 +299,108 @@ querySnapshot.forEach((doc) => {
                                         20%</div>
                                         </div>
                                 </td>
-                                <td><button class="btn" id=${element.id}>${element.isArchiver === true ? "Desarchiver" : "archiver"}</button></td>
+                                <td>
+
+                                </td>
+                                <td>
+                                  <i name = "voir" class="fa-solid fa-eye btnVoir" id=${element.id} data-bs-toggle="modal" data-bs-target="#exampleModal" date-bs-dismiss="modal"></i>
+                                  <i name = "archive" class="fa-solid fa-box-archive btnArchiver" id=${element.id}></i>
+                                  <i name = "bloquer" class="fa-solid fa-ban btnBloquer" id=${element.id}></i>
+                                </td>
                              </tr> `
       
-    });  
+                            });  
   
-    
+   
 
  
  const tabl =document.getElementById('table');
  //***********************************************************************
- const btnArchiver = document.querySelectorAll(".btn")
+ const btnArchiver = document.querySelectorAll(".btnArchiver")
+  //console.log(btnArchiver);
 btnArchiver.forEach(btn => {
 
      btn.addEventListener('click', (e)=> {
-      e.preventDefault();
-      const menbreId = btn.id;
-      const ref = doc(db,'membres', menbreId)
+          e.preventDefault();
+          const menbreId = btn.id;
+          let findData = tab.find(el => el.id === btn.id)
+          let ref = doc(db,'membres', menbreId)
           updateDoc(ref,  {
             isArchiver: true
-          })
-          .then(()=>location.reload())
-     })  
+          }).then(()=>location.reload())
+     })
+     
 })
+// ==================================bloqur============================================
+  const Tabl =document.getElementById('table');
+ const btnBloquer = document.querySelectorAll(".btnBloquer")
+ //console.log(btnBloquer);
+ btnBloquer.forEach(btn => {
+
+     btn.addEventListener('click', (e)=> {
+
+          e.preventDefault();
+            const menbreId = btn.id;
+            let findData = tab.find(el => el.id === btn.id)
+            let ref = doc(db,'membres', menbreId)
+            updateDoc(ref,  {
+              isBloquer: true
+            }).then(()=>location.reload())
+
+
+     })
+     
+} )
+
 // function resetForm() {
 //          document.getElementById("reset").reset();
 //        }
 //  resetForm();
+// =====================================================voir===============================================
+const formVoir = document.getElementById('voirModal')
+const btnVoir = document.querySelectorAll('.btnVoir')
+btnVoir.forEach(item =>{
+  item.addEventListener('click', (e)=>{
+  e.preventDefault();
+  document.querySelector('#contactForm > h1').innerHTML = "INFORMATIONS"
+  document.getElementById("ajouter").style.display = "none"
+  // document.getElementById("fermer").style.display = "block"
+  const input = document.querySelectorAll("input");
+  for (let i = 0; i < input.length; i++) {
+    input[i].setAttribute("readonly", true)
+  }
+  const menbreId = item.id;
+  let findData = tab.filter(el => el.id === item.id)
+      console.log(findData);
+      document.getElementById('fname').value = findData[0].name
+      document.getElementById('lname').value = findData[0].prenom
+      document.getElementById('Email').value = findData[0].email
+      document.getElementById('phone').value = findData[0].telephone
+      document.getElementById('profession').value = findData[0].profession
+      document.getElementById('Date').value = findData[0].date
+      document.getElementById('Organisation').value = findData[0].organisation
+      document.getElementById('Address').value = findData[0].adress
+    // const menbreId = item.id;
+    // let findData = tab.find(el => el.id === item.id)
+    // console.log(findData);
+    // let ref = doc(db,'membres', menbreId)
+    // updateDoc(ref,  {
+    //   isShown: true
+
+    // })
+// console.log(findData[0].name);
+
+})
+
+})
+
+const realod = ()=> location.reload();
  </script>
      
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<<<<<<< HEAD
+=======
+    <script type="module" src="../src/scripteJs/script.js"></script>
+>>>>>>> 46f1315e375d4d6b7395d09bfb2a722e0478a781
 </body>
 </html>

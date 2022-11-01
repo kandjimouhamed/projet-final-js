@@ -1,0 +1,291 @@
+#row{
+    font-size: larger;
+    background-color: rgb(99, 233, 110);
+    color: rgb(32, 32, 73);
+}
+
+/* Page Parametre */
+/*
+    Mes colors
+    grenn black: 0A3545;
+    grenn light: 24DF82;
+    gray: ededed
+*/
+#parametre{
+    background-color: #ededed;
+    min-height: 100vh;
+}
+#parametre .profil{
+    border-bottom: solid #ededed;
+}
+#parametre .profilDescription span{
+    display: block;
+    color: #0A3545;
+}
+#parametre .icon{
+    background-color: #24DF82;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    bottom: 5%;
+    right: 18%;
+}
+#parametre img{
+    border: #24DF82 solid;
+    width: 80%;
+}
+#parametre .icon i{
+    color: white;
+}
+#parametre #update{
+    background-color: #0A3545;
+    border: none;
+}
+/*------------------css usermodif-------------*/
+
+.user1{
+    background-color: #ccc;
+    font-size: 19px;
+    
+    padding: 2.5rem;
+}
+
+.user1 p{
+   padding-left: 2rem;
+   line-height:1.6;
+   color: #000;
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ 
+}
+.container-left h4{
+   line-height:4.6;
+   font-size: 20px;
+   color: #000;
+   font-weight: 700;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   
+}
+.container-right h4{
+   line-height:4.6;
+   font-size: 20px;
+   font-weight: 700;
+   color: #000;
+   font-size: 18px;
+}
+
+.container-right {
+    margin-top: 2rem;
+    padding-top: 6rem;
+    border-right: 1.2px solid #ccc;
+}
+.btn1{
+    height: 50px;
+    width: 18rem;
+    background-color: white;
+    color: #000;
+    
+}
+.btn1:hover{
+    height: 50px;
+    width: 18rem;
+    background-color: white;
+    
+     
+    background-color:#0c3346 ;
+    border-left: greenyellow 4px solid;
+
+    color: whitesmoke;
+    
+}
+#tdcss {
+    
+    background-color:#0c3346 ;
+    border-left: greenyellow 4px solid;
+
+    color: whitesmoke;
+}
+#update{
+    background-color: greenyellow;
+    color: #fff;
+}
+.div-tableau{
+    height: 500px;
+    overflow-x: hidden;
+    
+}
+.table {
+    overflow: scroll;
+}
+ 
+/*-------------- fin css usermodif----------------*/
+
+/* X-Small devices (portrait phones, less than 576px) */
+@media (max-width: 575px) {  }
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {  }
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+    #parametre .profil{
+        border-right: solid #ededed;
+        border-bottom: none;
+    }
+ }
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+    #parametre form{
+        width: 75%;
+    }
+ }
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {  }
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {  }
+
+/* CONNEXION  Alpha Oumar  Barry */
+#gauche{
+	height: 550px !important;
+	background-color: #0c3346 !important;
+	border-bottom-right-radius: 10px;
+	border-top-right-radius: 10px;
+}
+#gauche img{
+	padding: 80px;
+	height: 500px;
+	width: 350px;
+}
+
+
+.droit p{
+ color: #0c3346;
+}
+.a1 a{
+	padding-top: 15px;
+	margin-left: 100px;
+	color: #0c3346;
+	text-decoration: none;
+}
+
+.droite form input{
+	min-width: 250px !important;
+	background-color: #0c3346;
+	border-radius: 5px;
+	border: none;
+	height: 40px;
+	padding-left: 10px;
+	color: #fff !important;
+	font-weight: 600;
+}
+#connexion{
+	width: 250px !important;
+ 	background-color: rgb(0, 255, 140);
+	color: #0c3346;
+	border: none;
+	height: 40px;
+	border-radius: 5px;
+	font-weight: 700;
+	margin-top: 19px;
+}
+
+.droit p a{
+	font-weight: 700;
+	text-decoration: none;
+	color: #0c3346 !important;
+}
+@media only screen and (max-width: 767px) {
+	#gauche {
+	  display: none;
+	}
+  }
+
+@media only screen and (max-width: 967px) {
+	#gauche img{
+		padding: 50px;
+		height: 400px;
+		width: 250px;
+	}
+  }
+
+  /* utilisateurs */
+  html, body {
+    min-height: 100%;
+    }
+    body, div, form, input, label { 
+    padding: 0;
+    margin: 0;
+    outline: none;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 14px;
+    color: #666;
+    line-height: 22px;
+    }
+    h1{
+      font-family: Roboto, Arial, sans-serif;
+      text-align: center;
+    }
+    form {
+    width: 100%;
+    padding: 20px;
+    border-radius: 6px;
+    background: #fff;
+    /* box-shadow: 0 0 8px #006622;  */
+    }
+    input {
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width: calc(100% - 10px);
+    padding: 5px;
+    }
+    input[type="date"] {
+    padding: 4px 5px;
+    }
+  
+    .item input:hover {
+    border: 1px solid transparent;
+    /* box-shadow: 0 0 3px 0  #006622; */
+    color: #006622;
+    }
+    .item {
+    position: relative;
+    margin: 10px 0;
+    }
+   
+    .week {
+    display:flex;
+        justify-content:space-between;
+    }
+    .colums {
+    display:flex;
+    justify-content:space-between;
+    flex-direction:row;
+    flex-wrap:wrap;
+    }
+    .colums div {
+    width:48%;
+    }
+    .flax {
+    display:flex;
+    justify-content:space-around;
+    }
+    .btn-block {
+    margin-top: 10px;
+    text-align: right;
+    }
+    button {
+    width: 70px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px; 
+    background:  #1c87c9;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+    }
+    button:hover {
+    background:  #0692e8;
+    }
